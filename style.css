@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --tomato: hsl(4, 100%, 67%);
+  --darkSlateGrey: hsl(234, 29%, 20%);
+  --charcoalGrey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body,
+figure,
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+label,
+input,
+button,a {
+  width: inherit;
+  border-radius: 0.35rem;
+  outline: 0;
+  text-align: center;
+}
+body {
+  font-size: 16px;
+  background: var(--charcoalGrey);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  color: var(--charcoalGrey);
+  font-weight: 400;
+}
+
+main {
+  width: 60dvw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background-color: var(--white);
+  padding: 1.5rem;
+  height: fit-content;
+  border-radius: 2rem;
+}
+
+.left-side {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  & h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--darkSlateGrey);
+  }
+
+  & p {
+    font-size: 13px;
+    margin: 1.5rem 0 0.75rem 0;
+    line-height: 1.5;
+  }
+}
+
+ul {
+  padding: inherit;
+  font-size: 12.5px;
+  list-style-position: inside;
+  & li {
+    list-style: url("/assets/images/icon-list.svg");
+    padding: 0.35rem 0;
+  }
+}
+li::marker {
+  text-align: center !important;
+  text-align-last: center !important;
+}
+
+form {
+  width: 100%;
+  display: inline-block;
+  margin-top: 1rem;
+  & label {
+    font-weight: 700;
+    font-size: 12px;
+  }
+  & input {
+    width: calc(100% - 2.25rem);
+    padding: 1rem;
+    display: inline-block;
+    margin: 1rem 0;
+    border: 1px solid var(--grey);
+    &::placeholder {
+      padding: 0.25rem 0 0.25rem 0.5rem;
+      color: var(--c, var(--grey));
+    }
+  }
+  & button {
+    display: inline-block;
+    background-color: var(--darkSlateGrey);
+    color: var(--white);
+    padding: 1rem 0;
+    border: 0;
+    &:hover {
+      background: linear-gradient(to right, #ff57a0, #ff6257);
+    }
+  }
+}
+
+input:focus {
+  border: 1px solid var(--darkSlateGrey);
+}
+
+span {
+  float: right;
+  color: var(--tomato);
+}
+
+#mobile-view {
+  display: none;
+}
+
+.success {
+  width: 25dvw;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: 2rem;
+  & h1 {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 1.5rem 0;
+  }
+  & p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+  }
+}
+
+a {
+  width: 100%;
+  display: inline-block;
+  background-color: var(--darkSlateGrey);
+  color: var(--white);
+  padding: 1rem 0;
+  border: 0;
+  text-decoration: none;
+  &:hover {
+    background: linear-gradient(to right, #ff57a0, #ff6257);
+  }
+}
+
+@media (280px <= width <= 480px) {
+  body {
+    flex-direction: column;
+  }
+  main {
+    width: 100dvw;
+    grid-template-columns: 1fr;
+    padding: 0;
+    border-radius: 0;
+  }
+  #mobile-view {
+    display: block;
+  }
+  #desktop-view {
+    display: none;
+  }
+  .left-side {
+    order: 2;
+
+    & p {
+      font-size: 1rem;
+    }
+  }
+  .right-side {
+    order: 1;
+  }
+
+  ul {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  button {
+    font-size: 17px;
+  }
+  .success {
+    width: 100dvw;
+    height: 100dvh;
+    padding: 0;
+    border-radius: 0rem;
+    justify-content: space-around;
+    gap: 3rem;
+    & h1 {
+      line-height: 1;
+    }
+    & p {
+      margin: 1.5rem 0;
+    }
+    & div {
+      padding: 0 2rem;
+    }
+
+  }
+}
